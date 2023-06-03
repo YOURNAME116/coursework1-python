@@ -8,10 +8,8 @@ class Reading_wordlist:
     def __init__(self, path):
         self.path_to_file = path
         
-    @staticmethod
-    def rerun():
-       
-       pass
+
+
         
     # @staticmethod
     def Reading_file(self):
@@ -44,8 +42,7 @@ class Reading_wordlist:
             else:
                 print("\n******************************************************************************************")
                 print("File extension is not supportable, Make sure to use '.txt' file ")
-                # path2=input('enter the path2: ')
-                # re.rerun()
+               
                
                     
         except FileNotFoundError:
