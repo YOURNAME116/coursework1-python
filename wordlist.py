@@ -1,6 +1,6 @@
 import os
 import sys
-
+import time
 
 
 class Reading_wordlist:
@@ -8,8 +8,10 @@ class Reading_wordlist:
     def __init__(self, path):
         self.path_to_file = path
         
-
-
+    @staticmethod
+    def rerun():
+       
+       pass
         
     # @staticmethod
     def Reading_file(self):
@@ -35,6 +37,7 @@ class Reading_wordlist:
                     print("\n******************************************************************************************")
                     print (f""" "{self.path_to_file}" file path not found""")
                     
+                    
                    
                     
                     
@@ -42,7 +45,7 @@ class Reading_wordlist:
             else:
                 print("\n******************************************************************************************")
                 print("File extension is not supportable, Make sure to use '.txt' file ")
-               
+                
                
                     
         except FileNotFoundError:
@@ -54,14 +57,31 @@ def main():
     
     path=input("enter the path: ")
     re=Reading_wordlist(path).Reading_file()
+    count = 1
     while re is None:
-        path=input("enter the path: ")
-        re=Reading_wordlist(path).Reading_file()
-        if re is not None:
-            print(re)
-            return re
+        count = count + 1
+        path=input("enter the path or 'q' to quit: ")
+        
+        if path.lower() =="q":
+            sys.exit(2)
+            
+        elif count <= 3:
+           
+                re=Reading_wordlist(path).Reading_file()
+                if re is not None:
+                    print(re)
+                    return re
+                
+                else:
+                    continue
+        
         else:
-            continue
+                
+                print("Quitting !! Due to incorrect input for 3 times ****",end='');print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);sys.exit(3)
+        
+                
+                
+       
         
 if __name__ == "__main__":
     main()
