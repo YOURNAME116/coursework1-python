@@ -1,100 +1,58 @@
 import os
-import sys
+import tkinter as tk
 import time
 
-
 class Reading_wordlist:
-    
-    def __init__(self, path):
+    def __init__(self, path, output_frame):
         self.path_to_file = path
-        
-    @staticmethod
-    def rerun():
-       
-       pass
-        
-    # @staticmethod
+        self.output_frame = output_frame
+
     def Reading_file(self):
-        words=set()
-        
+        words = set()
+
         try:
-            
-            if os.path.splitext(self.path_to_file)[1]==".txt":
-                # filename = 'example.txt'
-                # file_extension = os.path.splitext(filename)[1]  # Returns the extension including the period
-
-                # print(file_extension)  # Output: ".txt"
-
+            if os.path.splitext(self.path_to_file)[1] == ".txt":
                 if os.path.isfile(self.path_to_file):
-                    with open(self.path_to_file,"r") as file:
+                    with open(self.path_to_file, "r") as file:
                         words = {line.strip() for line in file if line.strip()}
-                        #line.strip() strips the line in file if the line.striip() is true. 
-                    #if the it's like line.strip()=for line in file if line.strip is true.
-                    #if you want furter about this then remove .strip from line.strip() check output you will understand
-
-                        return words
+                    return words
                 else:
-                    print("\n******************************************************************************************")
-                    print (f""" "{self.path_to_file}" file path not found""")
-                    
-                    
-                   
-                    
-                    
-                    
+                    self.output_frame.insert(tk.END, f'"{self.path_to_file}" file path not found\n')
             else:
-                print("\n******************************************************************************************")
-                print("File extension is not supportable, Make sure to use '.txt' file ")
-                
-               
-                    
+                self.output_frame.insert(tk.END, "File extension is not supported, Make sure to use '.txt' file\n")
         except FileNotFoundError:
             pass
-            
 
-def main():
-    print("************************************************************************************************")
-    
-    path=input("enter the path: ")
-    re=Reading_wordlist(path).Reading_file()
-    count = 1
-    while re is None:
-        count = count + 1
-        path=input("enter the path or 'q' to quit: ")
+def run_tk():
+    def on_button_click():
+        path = entry.get()
+        word_set = Reading_wordlist(path, output_frame).Reading_file()
+        if word_set is not None:
+            output_frame.insert(tk.END, word_set)
+        count = 1
+        while word_set is None:
+            count = count + 1
+            if count > 3:
+                output_frame.insert(tk.END,"********************************* Quitting !! Due to incorrect input for 3 times ****")
+
         
-        if path.lower() =="q":
-            sys.exit(2)
-            
-        elif count <= 3:
-           
-                re=Reading_wordlist(path).Reading_file()
-                if re is not None:
-                    print(re)
-                    return re
-                
-                else:
-                    continue
-        
-        else:
-                
-                print("Quitting !! Due to incorrect input for 3 times ****",end='');print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);print("*",end='');time.sleep(0.1);sys.exit(3)
-        
-                
-                
-       
-        
+
+    app = tk.Tk()
+    app.title("Reading Wordlist")
+
+    label = tk.Label(app, text="Enter the path to the wordlist:")
+    label.pack()
+
+    entry = tk.Entry(app)
+    entry.pack()
+
+    button = tk.Button(app, text="Read Wordlist", command=on_button_click)
+    button.pack()
+
+    output_frame = tk.Text(app, height=10, width=80)
+    output_frame.pack()
+
+    app.mainloop()
+
 if __name__ == "__main__":
-    main()
-        
-   
-    
-    
-    
-    
-  
-    
-    
-    
-   
-             
-            
+    run_tk()
