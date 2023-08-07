@@ -11,7 +11,7 @@ Python 3.x
 Installation
 Clone this repository to your local machine:
 
-git clone https://github.com/your-username/PortScannerGUI.git
+```git clone https://github.com/your-username/PortScannerGUI.git```
 Navigate to the project directory:
 
 cd PortScannerGUI
