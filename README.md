@@ -30,15 +30,11 @@ Click the "Start Scan" button to begin the port scanning process.
 
 The scan results will be displayed in the text area, showing the status of each port (open or closed) and the detected service version (if applicable).
 
-You can save the scan results to an output file by clicking the "Save Output" button and providing a filename.
 
-To exit the application, click the "Exit" button.
 
 Contributing
 Contributions to this project are welcome! If you find any issues or have suggestions for improvements, please create an issue or submit a pull request.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 Acknowledgments
 This application is based on the Port Scanner and Service Version Detection modules from the coursework.
