@@ -20,11 +20,8 @@ Clone this repository to your local machine:
 Usage
 Run the Port Scanner GUI application:
 
-
 python main.py
 The application window will open. Enter the host address you want to scan and select the range of ports to scan.
-
-Choose the type of scan you want to perform (TCP or UDP).
 
 Click the "Start Scan" button to begin the port scanning process.
 
