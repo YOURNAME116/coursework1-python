@@ -11,14 +11,12 @@ Python 3.x
 Installation
 Clone this repository to your local machine:
 
-```git clone https://github.com/your-username/PortScannerGUI.git```
-Navigate to the project directory:
-
-cd PortScannerGUI
-Install the required dependencies:
+```git clone https://github.com/YOURNAME116/coursework1-python```
 
 
-pip install -r requirements.txt
+
+
+`pip install -r requirements.txt`
 Usage
 Run the Port Scanner GUI application:
 
